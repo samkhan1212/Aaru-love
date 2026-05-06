@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meri Jaan Superb 💕</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --neon-pink: #ff2d78;
+    --neon-magenta: #ff00aa;
+    --neon-cyan: #00f5ff;
+    --neon-purple: #bf00ff;
+    --neon-gold: #ffd700;
+    --bg-deep: #030010;
+    --bg-card: rgba(255,45,120,0.05);
+    --glow-pink: 0 0 10px #ff2d78, 0 0 30px #ff2d78, 0 0 60px #ff2d7866;
+    --glow-cyan: 0 0 10px #00f5ff, 0 0 30px #00f5ff, 0 0 60px #00f5ff66;
+    --glow-magenta: 0 0 10px #ff00aa, 0 0 30px #ff00aa, 0 0 60px #ff00aa66;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-deep);
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom Cursor */
+  .cursor {
+    position: fixed;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--neon-pink);
+    box-shadow: var(--glow-pink);
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+    transform: translate(-50%, -50%);
+  }
+  .cursor-trail {
+    position: fixed;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--neon-cyan);
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    opacity: 0.6;
+  }
+
+  /* Stars Background */
+  .stars {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle var(--dur) infinite alternate;
+  }
+  @keyframes twinkle {
+    0% { opacity: 0.1; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.4); }
+  }
+
+  /* Floating Hearts */
+  .hearts-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .heart-float {
+    position: absolute;
+    bottom: -50px;
+    font-size: var(--size);
+    animation: floatUp var(--speed) linear infinite;
+    opacity: 0;
+    filter: drop-shadow(0 0 6px var(--neon-pink));
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.4; }
+    100% { transform: translateY(-110vh) rotate(360deg) translateX(var(--drift)); opacity: 0; }
+  }
+
+  /* Sections */
+  section { position: relative; z-index: 2; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-eyebrow {
+    font-size: 1rem;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+    animation: fadeIn 1s ease 0.3s both;
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(4rem, 12vw, 9rem);
+    line-height: 1;
+    background: linear-gradient(135deg, #ff2d78, #ff00aa, #bf00ff, #00f5ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(255,45,120,0.6));
+    animation: fadeIn 1.2s ease 0.5s both, heroFloat 4s ease-in-out infinite;
+    margin-bottom: 10px;
+  }
+  @keyframes heroFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: rgba(255,255,255,0.75);
+    animation: fadeIn 1.2s ease 0.8s both;
+    margin-bottom: 40px;
+  }
+
+  .hero-heart {
+    font-size: 5rem;
+    animation: heartbeat 1.2s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px var(--neon-pink));
+    display: block;
+    margin-bottom: 30px;
+  }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.25); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.15); }
+    60% { transform: scale(1); }
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.5;
+    animation: bounce 2s infinite;
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--neon-pink);
+  }
+  .scroll-arrow { font-size: 1.5rem; }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTION TITLES ── */
+  .section-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    text-align: center;
+    margin-bottom: 60px;
+    background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 15px rgba(255,45,120,0.5));
+  }
+
+  .neon-divider {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-pink), transparent);
+    margin: 0 auto 60px;
+    box-shadow: var(--glow-pink);
+  }
+
+  /* ── LOVE CALCULATOR ── */
+  #calculator {
+    padding: 100px 20px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .calc-card {
+    background: rgba(255,45,120,0.04);
+    border: 1px solid rgba(255,45,120,0.2);
+    border-radius: 24px;
+    padding: 50px 40px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 40px rgba(255,45,120,0.1), inset 0 0 40px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  .calc-card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px; bottom: -1px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(255,45,120,0.3), transparent, rgba(0,245,255,0.2));
+    z-index: -1;
+    animation: borderGlow 3s ease-in-out infinite alternate;
+  }
+  @keyframes borderGlow {
+    0% { opacity: 0.4; }
+    100% { opacity: 1; }
+  }
+
+  .input-group {
+    margin-bottom: 25px;
+  }
+  .input-group label {
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--neon-cyan);
+    margin-bottom: 10px;
+    text-shadow: var(--glow-cyan);
+  }
+  .input-group input {
+    width: 100%;
+    padding: 16px 20px;
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,45,120,0.3);
+    border-radius: 12px;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  .input-group input:focus {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 0 3px rgba(255,45,120,0.15), var(--glow-pink);
+  }
+  .input-group input::placeholder { color: rgba(255,255,255,0.3); }
+
+  .vs-divider {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: var(--neon-pink);
+    text-shadow: var(--glow-pink);
+    margin: -5px 0;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+
+  .calc-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255,45,120,0.4);
+    position: relative;
+    overflow: hidden;
+  }
+  .calc-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+  }
+  .calc-btn:hover::after { width: 300px; height: 300px; }
+  .calc-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,45,120,0.6); }
+
+  /* Result */
+  .calc-result {
+    margin-top: 40px;
+    text-align: center;
+    display: none;
+    animation: fadeIn 0.5s ease;
+  }
+  .result-percentage {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    background: linear-gradient(135deg, var(--neon-pink), var(--neon-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(255,45,120,0.8));
+    animation: countUp 1.5s ease;
+  }
+  @keyframes countUp {
+    from { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+    to { opacity: 1; transform: scale(1) rotate(0); }
+  }
+  .result-message {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.8);
+    margin-top: 15px;
+    line-height: 1.6;
+  }
+  .result-bar-container {
+    height: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    margin: 20px 0;
+    overflow: hidden;
+  }
+  .result-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan));
+    border-radius: 10px;
+    box-shadow: var(--glow-pink);
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ── SHAYARI ── */
+  #shayari {
+    padding: 100px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .shayari-grid {
+    display: grid;
+    gap: 30px;
+  }
+
+  .shayari-card {
+    background: rgba(0,245,255,0.03);
+    border: 1px solid rgba(0,245,255,0.12);
+    border-radius: 20px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: default;
+  }
+  .shayari-card::before {
+    content: '"';
+    position: absolute;
+    top: -20px; left: 20px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 8rem;
+    color: rgba(255,45,120,0.08);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .shayari-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(255,45,120,0.15), 0 0 0 1px rgba(255,45,120,0.3);
+  }
+  .shayari-card .tag {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+    margin-bottom: 20px;
+    display: block;
+  }
+  .shayari-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    line-height: 2;
+    color: rgba(255,255,255,0.9);
+    font-style: italic;
+  }
+  .shayari-text .line {
+    display: block;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+  .shayari-card:hover .line {
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255,45,120,0.4);
+  }
+  .shayari-author {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    color: var(--neon-cyan);
+    text-shadow: var(--glow-cyan);
+  }
+
+  /* ── REASONS ── */
+  #reasons {
+    padding: 100px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+  }
+
+  .reason-card {
+    background: rgba(191,0,255,0.05);
+    border: 1px solid rgba(191,0,255,0.15);
+    border-radius: 18px;
+    padding: 30px 25px;
+    text-align: center;
+    transition: all 0.4s ease;
+    animation: fadeIn 0.6s ease both;
+  }
+  .reason-card:hover {
+    background: rgba(191,0,255,0.1);
+    border-color: rgba(191,0,255,0.4);
+    transform: scale(1.03) translateY(-4px);
+    box-shadow: 0 0 30px rgba(191,0,255,0.2);
+  }
+  .reason-emoji { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+  .reason-title {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--neon-magenta);
+    text-shadow: 0 0 10px rgba(255,0,170,0.5);
+    margin-bottom: 10px;
+  }
+  .reason-desc {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+  }
+
+  /* ── MESSAGE ── */
+  #message {
+    padding: 120px 20px;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .message-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+    line-height: 2;
+    color: rgba(255,255,255,0.85);
+    font-style: italic;
+    background: rgba(255,45,120,0.04);
+    border: 1px solid rgba(255,45,120,0.15);
+    border-radius: 20px;
+    padding: 50px 40px;
+    position: relative;
+  }
+  .message-letter::before, .message-letter::after {
+    content: '❧';
+    color: var(--neon-pink);
+    text-shadow: var(--glow-pink);
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .message-letter::after {
+    margin-top: 20px;
+    margin-bottom: 0;
+    transform: rotate(180deg);
+  }
+  .message-sign {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: var(--neon-pink);
+    text-shadow: var(--glow-pink);
+    margin-top: 30px;
+    display: block;
+    animation: heroFloat 4s ease-in-out infinite;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 60px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    border-top: 1px solid rgba(255,45,120,0.1);
+  }
+  .footer-hearts {
+    font-size: 1.5rem;
+    animation: heartbeat 1.2s ease-in-out infinite;
+    display: inline-block;
+  }
+  .footer-text {
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-top: 15px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    background: linear-gradient(to bottom, rgba(3,0,16,0.9), transparent);
+    backdrop-filter: blur(10px);
+  }
+  nav a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+  }
+  nav a:hover {
+    color: var(--neon-pink);
+    text-shadow: var(--glow-pink);
+  }
+
+  /* Sparkle burst on result */
+  .sparkle {
+    position: absolute;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    animation: sparkleAnim 1s ease forwards;
+    pointer-events: none;
+  }
+  @keyframes sparkleAnim {
+    0% { transform: translate(0,0) scale(1); opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+  }
+
+  @media (max-width: 600px) {
+    nav { gap: 20px; padding: 15px 20px; }
+    nav a { font-size: 0.7rem; letter-spacing: 2px; }
+    .calc-card { padding: 30px 20px; }
+    .message-letter { padding: 35px 25px; }
+    .shayari-card { padding: 30px 25px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-trail" id="cursorTrail"></div>
+
+<!-- Stars -->
+<div class="stars" id="stars"></div>
+
+<!-- Floating Hearts BG -->
+<div class="hearts-bg" id="heartsBg"></div>
+
+<!-- Nav -->
+<nav>
+  <a href="#hero">Home</a>
+  <a href="#calculator">Calculator</a>
+  <a href="#shayari">Shayari</a>
+  <a href="#reasons">Reasons</a>
+  <a href="#message">Letter</a>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <p class="hero-eyebrow">✦ Sirf Tere Liye ✦</p>
+  <h1 class="hero-title">Meri Jaan</h1>
+  <p class="hero-subtitle">Har pal teri yaad mein guzarta hai…</p>
+  <span class="hero-heart">💗</span>
+  <p style="font-size:0.85rem; letter-spacing:3px; color:rgba(255,255,255,0.35); text-transform:uppercase;">Ek khaas tohfa — sirf tere liye bana</p>
+  <div class="scroll-hint">
+    <span>Neeche Dekho</span>
+    <span class="scroll-arrow">↓</span>
+  </div>
+</section>
+
+<!-- ══ LOVE CALCULATOR ══ -->
+<section id="calculator">
+  <h2 class="section-title">Love Calculator</h2>
+  <div class="neon-divider"></div>
+  <div class="calc-card">
+    <div class="input-group">
+      <label>Tumhara Naam</label>
+      <input type="text" id="name1" placeholder="Apna naam likho...">
+    </div>
+    <div class="vs-divider">♡ &amp; ♡</div>
+    <div class="input-group" style="margin-top:25px">
+      <label>Unka Naam</label>
+      <input type="text" id="name2" placeholder="Unka naam likho...">
+    </div>
+    <button class="calc-btn" onclick="calculateLove()">💕 Pyaar Napo</button>
+
+    <div class="calc-result" id="calcResult">
+      <div class="result-bar-container">
+        <div class="result-bar" id="resultBar"></div>
+      </div>
+      <div class="result-percentage" id="resultPercent">0%</div>
+      <p class="result-message" id="resultMsg"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SHAYARI ══ -->
+<section id="shayari">
+  <h2 class="section-title">Romantic Shayari</h2>
+  <div class="neon-divider"></div>
+  <div class="shayari-grid">
+
+    <div class="shayari-card">
+      <span class="tag">✦ Ishq ✦</span>
+      <div class="shayari-text">
+        <span class="line">Tujhe dekha to jaana sanam,</span>
+        <span class="line">Pyaar hota hai deewana sanam,</span>
+        <span class="line">Zindagi ek safar hai suhana,</span>
+        <span class="line">Yahan kal kya ho kisne jaana.</span>
+      </div>
+      <p class="shayari-author">— Dil Ki Baat</p>
+    </div>
+
+    <div class="shayari-card">
+      <span class="tag">✦ Mohabbat ✦</span>
+      <div class="shayari-text">
+        <span class="line">Tumhari aankhon mein kho jaata hoon,</span>
+        <span class="line">Teri muskurahat pe roz marta hoon,</span>
+        <span class="line">Koi poochhe mujhse kyun pagal hun,</span>
+        <span class="line">Main kehta hoon — tera deewaana hoon.</span>
+      </div>
+      <p class="shayari-author">— Aankhon Ki Baat</p>
+    </div>
+
+    <div class="shayari-card">
+      <span class="tag">✦ Intezaar ✦</span>
+      <div class="shayari-text">
+        <span class="line">Raat bhar tujhe sochta hoon main,</span>
+        <span class="line">Har sapne mein tujhe dekhta hoon main,</span>
+        <span class="line">Tu hi meri subah, tu hi meri shaam,</span>
+        <span class="line">Teri har ada pe dil deta hoon main.</span>
+      </div>
+      <p class="shayari-author">— Sapnon Ki Raat</p>
+    </div>
+
+    <div class="shayari-card">
+      <span class="tag">✦ Wafa ✦</span>
+      <div class="shayari-text">
+        <span class="line">Teri hansi mein jannat hai meri,</span>
+        <span class="line">Tere bina adhoori hai yeh zindagi meri,</span>
+        <span class="line">Chaand bhi sharminda ho teri aankhon se,</span>
+        <span class="line">Kya kahun — tu hai duniya saari meri.</span>
+      </div>
+      <p class="shayari-author">— Rooh Ki Awaaz</p>
+    </div>
+
+    <div class="shayari-card">
+      <span class="tag">✦ Dil ✦</span>
+      <div class="shayari-text">
+        <span class="line">Teri yaad aati hai to dil khil jaata hai,</span>
+        <span class="line">Teri baat hoti hai to waqt thhar jaata hai,</span>
+        <span class="line">Pyaar hai ya jaadoo teri aankhon mein,</span>
+        <span class="line">Har baar dekhun to dil dhal jaata hai.</span>
+      </div>
+      <p class="shayari-author">— Jaadu Ki Nazrein</p>
+    </div>
+
+    <div class="shayari-card">
+      <span class="tag">✦ Hamesha ✦</span>
+      <div class="shayari-text">
+        <span class="line">Main chahta hoon tujhe is kadar,</span>
+        <span class="line">Jaise chaand ko uski chandni,</span>
+        <span class="line">Jaise phool ko uski khushbu,</span>
+        <span class="line">Jaise mujhe sirf teri lambi zindagi.</span>
+      </div>
+      <p class="shayari-author">— Ishq Ki Ibaadat</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ REASONS ══ -->
+<section id="reasons">
+  <h2 class="section-title">Kyun Pyaar Karta Hoon</h2>
+  <div class="neon-divider"></div>
+  <div class="reasons-grid">
+    <div class="reason-card" style="animation-delay:0.1s">
+      <span class="reason-emoji">😊</span>
+      <p class="reason-title">Teri Muskaan</p>
+      <p class="reason-desc">Teri muskurahat se mera poora din roshan ho jaata hai.</p>
+    </div>
+    <div class="reason-card" style="animation-delay:0.2s">
+      <span class="reason-emoji">💬</span>
+      <p class="reason-title">Teri Baatein</p>
+      <p class="reason-desc">Har baat mein teri ek alag hi kasish hai jo dil ko bhati hai.</p>
+    </div>
+    <div class="reason-card" style="animation-delay:0.3s">
+      <span class="reason-emoji">🌟</span>
+      <p class="reason-title">Teri Aadat</p>
+      <p class="reason-desc">Tujhse milna meri sabse khoobsurat aadat ban gayi hai.</p>
+    </div>
+    <div class="reason-card" style="animation-delay:0.4s">
+      <span class="reason-emoji">🔥</span>
+      <p class="reason-title">Tera Josh</p>
+      <p class="reason-desc">Tera andaaz aur teri himmat mujhe roz inspire karti hai.</p>
+    </div>
+    <div class="reason-card" style="animation-delay:0.5s">
+      <span class="reason-emoji">🫂</span>
+      <p class="reason-title">Tera Saath</p>
+      <p class="reason-desc">Tera saath hona hi meri sabse badi khushi hai duniya mein.</p>
+    </div>
+    <div class="reason-card" style="animation-delay:0.6s">
+      <span class="reason-emoji">💫</span>
+      <p class="reason-title">Tu Khud</p>
+      <p class="reason-desc">Teri har cheez — khamiyan bhi — sab kuch mujhe pasand hai.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MESSAGE ══ -->
+<section id="message">
+  <h2 class="section-title">Dil Ki Baat</h2>
+  <div class="neon-divider"></div>
+  <div class="message-letter">
+    Meri jaan,<br><br>
+    Yeh jaanta hoon ki alfaaz kafi nahi hote,
+    par phir bhi koshish karta hoon tujhe bataaun
+    ki tera hona meri zindagi mein kitna khaas hai.
+    <br><br>
+    Teri hansi meri dawa hai, teri aankhein meri duniya,
+    aur tera naam — bas tera naam — mera dil ka sukoon hai.
+    <br><br>
+    Har subah teri yaad ke saath shuru hoti hai,
+    aur har raat tujhe socha ke khatam hoti hai.
+    Tu sirf meri girlfriend nahi — tu mera ghar hai.
+    <br><br>
+    Hamesha tera,
+  </div>
+  <span class="message-sign">Tumhara ❤️</span>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-hearts">💗 💕 💗</div>
+  <p class="footer-text">Banaya gaya sirf tere liye &nbsp;·&nbsp; Pyaar se &nbsp;·&nbsp; Hamesha ke liye</p>
+</footer>
+
+<script>
+  // ── Cursor ──
+  const cursor = document.getElementById('cursor');
+  const trail = document.getElementById('cursorTrail');
+  let tx = 0, ty = 0;
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    setTimeout(() => {
+      trail.style.left = e.clientX + 'px';
+      trail.style.top = e.clientY + 'px';
+    }, 100);
+  });
+
+  // ── Stars ──
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 150; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 2.5 + 0.5;
+    s.style.cssText = `
+      width:${size}px; height:${size}px;
+      top:${Math.random()*100}%; left:${Math.random()*100}%;
+      --dur:${Math.random()*3+2}s;
+      animation-delay:${Math.random()*5}s;
+    `;
+    starsEl.appendChild(s);
+  }
+
+  // ── Floating Hearts ──
+  const heartsBg = document.getElementById('heartsBg');
+  const emojis = ['💕','💗','💖','💓','💝','❤️','🌸','✨'];
+  function spawnHeart() {
+    const h = document.createElement('div');
+    h.className = 'heart-float';
+    h.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    const left = Math.random() * 100;
+    const speed = Math.random() * 10 + 8;
+    const size = Math.random() * 1.5 + 0.8;
+    const drift = (Math.random() - 0.5) * 200;
+    h.style.cssText = `
+      left:${left}%;
+      --size:${size}rem;
+      --speed:${speed}s;
+      --drift:${drift}px;
+      animation-delay:${Math.random()*5}s;
+    `;
+    heartsBg.appendChild(h);
+    setTimeout(() => h.remove(), (speed + 5) * 1000);
+  }
+  setInterval(spawnHeart, 800);
+  for (let i = 0; i < 6; i++) spawnHeart();
+
+  // ── Love Calculator ──
+  const msgs = {
+    100: "Yeh toh Rab ne banai jodi hai! 💍",
+    90:  "Rishta asmaan pe likha hua hai! 💫",
+    80:  "Pyaar sach mein gehra hai tumhara! 💖",
+    70:  "Dil milte hain tumhare — khoobsurat! 💕",
+    60:  "Ek acha connection hai tumhara! 💓",
+    50:  "Kuch to khaas baat hai is rishte mein! 🌸",
+    0:   "Dil se dil milega zaroor! ✨"
+  };
+
+  function calculateLove() {
+    const n1 = document.getElementById('name1').value.trim();
+    const n2 = document.getElementById('name2').value.trim();
+    if (!n1 || !n2) {
+      document.getElementById('name1').style.borderColor = '#ff2d78';
+      document.getElementById('name2').style.borderColor = '#ff2d78';
+      setTimeout(() => {
+        document.getElementById('name1').style.borderColor = '';
+        document.getElementById('name2').style.borderColor = '';
+      }, 1000);
+      return;
+    }
+
+    // Generate "consistent" result based on names
+    const combined = (n1 + n2).toLowerCase().replace(/\s/g,'');
+    let hash = 0;
+    for (let c of combined) hash = ((hash << 5) - hash) + c.charCodeAt(0);
+    let pct = Math.abs(hash) % 101;
+    // If both names are common romantic pair, boost
+    if (combined.includes('jaan') || combined.includes('babu') || combined.includes('love')) pct = 100;
+
+    const result = document.getElementById('calcResult');
+    result.style.display = 'block';
+
+    // Animate count
+    let current = 0;
+    const el = document.getElementById('resultPercent');
+    const bar = document.getElementById('resultBar');
+    const step = pct / 60;
+    const timer = setInterval(() => {
+      current = Math.min(current + step, pct);
+      el.textContent = Math.round(current) + '%';
+      if (current >= pct) clearInterval(timer);
+    }, 25);
+
+    setTimeout(() => {
+      bar.style.width = pct + '%';
+    }, 100);
+
+    const threshold = [100,90,80,70,60,50,0];
+    const msg = msgs[threshold.find(t => pct >= t)];
+    document.getElementById('resultMsg').textContent = msg;
+
+    // Sparkle burst
+    spawnSparkles(document.querySelector('.calc-btn'));
+  }
+
+  function spawnSparkles(el) {
+    const rect = el.getBoundingClientRect();
+    const cx = rect.left + rect.width/2;
+    const cy = rect.top + rect.height/2;
+    for (let i = 0; i < 20; i++) {
+      const sp = document.createElement('div');
+      sp.className = 'sparkle';
+      const angle = (i / 20) * Math.PI * 2;
+      const dist = Math.random() * 80 + 40;
+      sp.style.cssText = `
+        left:${cx}px; top:${cy}px;
+        background:${i%2===0 ? '#ff2d78' : '#00f5ff'};
+        --tx:${Math.cos(angle)*dist}px;
+        --ty:${Math.sin(angle)*dist}px;
+        position:fixed; z-index:1000;
+      `;
+      document.body.appendChild(sp);
+      setTimeout(() => sp.remove(), 1000);
+    }
+  }
+
+  // Enter key on inputs
+  document.getElementById('name1').addEventListener('keydown', e => { if (e.key==='Enter') document.getElementById('name2').focus(); });
+  document.getElementById('name2').addEventListener('keydown', e => { if (e.key==='Enter') calculateLove(); });
+
+  // ── Scroll fade-in for cards ──
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = e.target.style.transform.replace('translateY(30px)','translateY(0)') || 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.shayari-card, .reason-card, .message-letter').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    observer.observe(el);
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>
